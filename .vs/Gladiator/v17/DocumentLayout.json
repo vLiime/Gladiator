@@ -1,9 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\liam.antonsson\\source\\repos\\Gladiator\\",
+  "WorkspaceRootPath": "C:\\Users\\liam.antonsson\\Documents\\GitHub\\Gladiator\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{67919106-10B4-4BE4-82FA-0E5D66437DC0}|Gladiator\\Gladiator.csproj|c:\\users\\liam.antonsson\\source\\repos\\gladiator\\gladiator\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{67919106-10B4-4BE4-82FA-0E5D66437DC0}|Gladiator\\Gladiator.csproj|c:\\users\\liam.antonsson\\documents\\github\\gladiator\\gladiator\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{67919106-10B4-4BE4-82FA-0E5D66437DC0}|Gladiator\\Gladiator.csproj|solutionrelative:gladiator\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -20,11 +20,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\liam.antonsson\\source\\repos\\Gladiator\\Gladiator\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\liam.antonsson\\Documents\\GitHub\\Gladiator\\Gladiator\\Program.cs",
               "RelativeDocumentMoniker": "Gladiator\\Program.cs",
-              "ToolTip": "C:\\Users\\liam.antonsson\\source\\repos\\Gladiator\\Gladiator\\Program.cs",
+              "ToolTip": "C:\\Users\\liam.antonsson\\Documents\\GitHub\\Gladiator\\Gladiator\\Program.cs",
               "RelativeToolTip": "Gladiator\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQBAABJAAAAAAAAAA==",
+              "ViewState": "AgIAAHMAAAAAAAAAAAAuwFwBAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-16T10:43:02.101Z",
               "EditorCaption": ""

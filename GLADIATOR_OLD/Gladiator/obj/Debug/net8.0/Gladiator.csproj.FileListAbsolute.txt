@@ -1,0 +1,14 @@
+C:\Users\liam.antonsson\source\repos\Gladiator\Gladiator\bin\Debug\net8.0\Gladiator.exe
+C:\Users\liam.antonsson\source\repos\Gladiator\Gladiator\bin\Debug\net8.0\Gladiator.deps.json
+C:\Users\liam.antonsson\source\repos\Gladiator\Gladiator\bin\Debug\net8.0\Gladiator.runtimeconfig.json
+C:\Users\liam.antonsson\source\repos\Gladiator\Gladiator\bin\Debug\net8.0\Gladiator.dll
+C:\Users\liam.antonsson\source\repos\Gladiator\Gladiator\bin\Debug\net8.0\Gladiator.pdb
+C:\Users\liam.antonsson\source\repos\Gladiator\Gladiator\obj\Debug\net8.0\Gladiator.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\liam.antonsson\source\repos\Gladiator\Gladiator\obj\Debug\net8.0\Gladiator.AssemblyInfoInputs.cache
+C:\Users\liam.antonsson\source\repos\Gladiator\Gladiator\obj\Debug\net8.0\Gladiator.AssemblyInfo.cs
+C:\Users\liam.antonsson\source\repos\Gladiator\Gladiator\obj\Debug\net8.0\Gladiator.csproj.CoreCompileInputs.cache
+C:\Users\liam.antonsson\source\repos\Gladiator\Gladiator\obj\Debug\net8.0\Gladiator.dll
+C:\Users\liam.antonsson\source\repos\Gladiator\Gladiator\obj\Debug\net8.0\refint\Gladiator.dll
+C:\Users\liam.antonsson\source\repos\Gladiator\Gladiator\obj\Debug\net8.0\Gladiator.pdb
+C:\Users\liam.antonsson\source\repos\Gladiator\Gladiator\obj\Debug\net8.0\Gladiator.genruntimeconfig.cache
+C:\Users\liam.antonsson\source\repos\Gladiator\Gladiator\obj\Debug\net8.0\ref\Gladiator.dll

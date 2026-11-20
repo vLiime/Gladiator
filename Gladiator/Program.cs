@@ -60,21 +60,21 @@ internal class Program
 
     static List<LightWeapon> lightWeapons = new List<LightWeapon>
     {
-        new LightWeapon { Name = "Dirk", MinDamage = 8, MaxDamage = 8, HitChance = 100 },
-        new LightWeapon { Name = "Tomahawk", MinDamage = 6, MaxDamage = 11, HitChance = 95 },
+        new LightWeapon { Name = "Dirk", MinDamage = 8, MaxDamage = 9, HitChance = 100 },
+        new LightWeapon { Name = "Tomahawk", MinDamage = 6, MaxDamage = 11, HitChance = 90 },
         new LightWeapon { Name = "Jambiya", MinDamage = 9, MaxDamage = 9, HitChance = 95 }
     };
 
     static List<Shield> shields = new List<Shield>
     {
-        new Shield { Name = "Parma", BlockChance = 30 },
-        new Shield { Name = "Scutum", BlockChance = 30 }
+        new Shield { Name = "Parma", BlockChance = 25 },
+        new Shield { Name = "Scutum", BlockChance = 25 }
     };
 
     static Dictionary<string, Armor> armors = new Dictionary<string, Armor>
     {
-        { "Centurion", new Armor { Name = "Centurion", MinArmorMultiplier = 0.9 } },
-        { "Dimachaeri", new Armor { Name = "Dimachaeri", MaxArmorMultiplier = 1.1 } }
+        { "Centurion", new Armor { Name = "Centurion"} },
+        { "Dimachaeri", new Armor { Name = "Dimachaeri"} }
     };
 
     static Dictionary<string, int> weatherPenalties = new Dictionary<string, int>
@@ -87,31 +87,34 @@ internal class Program
 
     private static void Main(string[] args)
     {
+        bool startGameScreen = true;
         Dictionary<string, Action> gameModes = new Dictionary<string, Action>(StringComparer.OrdinalIgnoreCase)
         {
             { "PVP", StartPvP },
         };
 
         #region Start
-        Console.ForegroundColor = ConsoleColor.DarkGray;
-        string text = "<===== Gladiator =====>";
-        CentreraText(text);
-        Console.WriteLine("\nWelcome to Gladiator, in this game you will fight against another player.\nYou will have the choice to choose which weapons you want to use.\nSome things will be up to a coin flip, when doing the coin flip you will randomly be asigned a side of the coin.\nTo continue the game you will always have to press 'Enter' button if it doesnt say anything else.");
-        Console.ReadLine();
-        Console.Clear();
+        Intro();
 
-        Console.WriteLine("Type PvP to continue.");
-        string gameMode = Console.ReadLine() ?? "";
-        Console.Clear();
-        #endregion
+        while (startGameScreen)
+        {
+            Console.WriteLine("The heavy iron portcullis groans upward, flooding the dark stone tunnel with blinding, merciless sunlight. As you step \nonto the scorched earth of the Crimson Pit, the sheer wall of sound from ten thousand spectators hits you like a \nphysical blow. Dust hangs thick in the air, carrying the sharp, metallic tang of dry ash, sweat, and sun-baked clay.\r\n\r\nAcross the expanse of trampled sand, the opposing gate slams shut with a finality that echoes in your chest. Your rival emerges from the shadows—a silhouette of scarred muscle and cold, unblinking focus, already pacing the perimeter like a caged hound. There are no banners flown in honor here, no armor to hide behind, and no forged steel to carry the burden of survival. There are only two warriors, bound by the ancient decree of Vespera, circling each other as the crowd’s \nanticipation reaches a fever pitch.");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Write("\nWrite pvp to continue...");
+            string gameMode = Console.ReadLine() ?? "";
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            Console.Clear();
+            #endregion
 
-        if (gameModes.ContainsKey(gameMode))
-        {
-            gameModes[gameMode](); 
-        }
-        else
-        {
-            Console.WriteLine("LMAO du gjorde fel!!!!!!!!!!!!!!!!!!!!!");
+            if (gameModes.ContainsKey(gameMode))
+            {
+                gameModes[gameMode]();
+                startGameScreen = false;
+            }
+            else
+            {
+                Console.Clear();
+            }
         }
     }
 
@@ -129,45 +132,60 @@ internal class Program
         foreach (var player in new[] { player1, player2 })
         {
             Console.Clear();
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine($"=== {player.Name}'s turn to choose equipment (HP: {player.Health}) ===\n");
+            Console.ForegroundColor = ConsoleColor.DarkGray;
 
             // Choose Heavy Weapon
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("Heavy slot:");
+            Console.ForegroundColor = ConsoleColor.DarkGray;
             for (int i = 0; i < heavyWeapons.Count; i++)
             {
                 var w = heavyWeapons[i];
                 string dmg = w.MinDamage == w.MaxDamage ? $"{w.MinDamage}" : $"{w.MinDamage} - {w.MaxDamage}";
-                Console.WriteLine($"  {i + 1}. {w.Name} - {dmg} damage ({w.HitChance}% hit chance)");
+                Console.WriteLine($"  {i + 1}. {w.Name} -- {dmg} damage ({w.HitChance}% hit chance)");
             }
+            Console.ForegroundColor = ConsoleColor.White;
             Console.Write("Choose a heavy weapon (1-5): ");
             int heavyChoice = Choice(1, heavyWeapons.Count) - 1;
             player.HeavyWeapon = heavyWeapons[heavyChoice];
+            Console.ForegroundColor = ConsoleColor.DarkGray;
 
             // Choose Light Weapon
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("\nLight slot:");
+            Console.ForegroundColor = ConsoleColor.DarkGray;
             for (int i = 0; i < lightWeapons.Count; i++)
             {
                 var w = lightWeapons[i];
                 string dmg = w.MinDamage == w.MaxDamage ? $"{w.MinDamage}" : $"{w.MinDamage} - {w.MaxDamage}";
-                Console.WriteLine($"  {i + 1}. {w.Name} - {dmg} damage ({w.HitChance}% hit chance)");
+                Console.WriteLine($"  {i + 1}. {w.Name} -- {dmg} damage ({w.HitChance}% hit chance)");
             }
+            Console.ForegroundColor = ConsoleColor.White;
             Console.Write("Choose a light weapon (1-3): ");
             int lightChoice = Choice(1, lightWeapons.Count) - 1;
             player.LightWeapon = lightWeapons[lightChoice];
+            Console.ForegroundColor = ConsoleColor.DarkGray;
 
             // Choose Shield
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("\nShield slot:");
+            Console.ForegroundColor = ConsoleColor.DarkGray;
             for (int i = 0; i < shields.Count; i++)
             {
                 var s = shields[i];
                 Console.WriteLine($"  {i + 1}. {s.Name} ({s.BlockChance}% block chance)");
             }
+            Console.ForegroundColor = ConsoleColor.White;
             Console.Write("Choose a shield (1-2): ");
             int shieldChoice = Choice(1, shields.Count) - 1;
             player.Shield = shields[shieldChoice];
+            Console.ForegroundColor = ConsoleColor.DarkGray;
 
-                // Choose Armor via coin flip med Dictionary
-                Console.WriteLine("\nThe armor you got was chosen by a random generation with a coin flip");
+            // Choose Armor via coin flip med Dictionary
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("\nThe armor you got was chosen by a random generation with a coin flip");
             int randomArmorGeneration = Random.Shared.Next(0, 2);
             if (randomArmorGeneration == 0)
             {
@@ -181,6 +199,7 @@ internal class Program
                 Console.WriteLine("The armor you got is Dimachaeri armor\nYour armor is only a cosmetic and wont affect your gameplay.");
                 player.Armor = armors["Dimachaeri"];
             }
+            Console.ForegroundColor = ConsoleColor.DarkGray;
 
             Console.WriteLine("\nPress Enter to continue...");
             Console.ReadLine();
@@ -191,7 +210,9 @@ internal class Program
         playerTurnQueue.Enqueue(player2);
 
         Console.Clear();
+        Console.ForegroundColor = ConsoleColor.White;
         Console.WriteLine($"{player1.Name} will be going up against {player2.Name}!\n");
+        Console.ForegroundColor = ConsoleColor.DarkGray;
 
         string currentWeather = "Clear";
         try
@@ -235,13 +256,16 @@ internal class Program
             Console.Clear();
             Character attacker = playerTurnQueue.Dequeue();
             Character defender = playerTurnQueue.Peek();
-
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine($"=== It is {attacker.Name}'s turn to attack! ===");
             Console.WriteLine($"{attacker.Name} HP: {attacker.Health} | {defender.Name} HP: {defender.Health}\n");
             Console.WriteLine("Choose weapon to attack with:");
+            Console.ForegroundColor = ConsoleColor.DarkGray;
             Console.WriteLine($"1. Heavy: {attacker.HeavyWeapon.Name} ({attacker.HeavyWeapon.MinDamage}-{attacker.HeavyWeapon.MaxDamage} dmg) ({attacker.HeavyWeapon.HitChance}% hit chance)");
             Console.WriteLine($"2. Light: {attacker.LightWeapon.Name} ({attacker.LightWeapon.MinDamage}-{attacker.LightWeapon.MaxDamage} dmg) ({attacker.HeavyWeapon.HitChance}% hit chance)");
+            Console.ForegroundColor = ConsoleColor.White;
             Console.Write("\nYour choice (1-2): ");
+            Console.ForegroundColor = ConsoleColor.DarkGray;
 
             int weaponChoice = Choice(1, 2);
             int damageDealt = 0;
@@ -268,13 +292,15 @@ internal class Program
             defender.Health -= damageDealt;
             if (defender.Health < 0) defender.Health = 0;
 
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine($"{defender.Name} has {defender.Health} HP remaining.");
+            Console.ForegroundColor = ConsoleColor.DarkGray;
             playerTurnQueue.Enqueue(attacker);
 
             if (defender.Health <= 0)
             {
                 Console.Clear();
-                Console.WriteLine($"\n{attacker.Name} wins the battle!");
+                Console.WriteLine($"As the final blow echoes across the arena and one warrior collapses motionless into the dark, \ntrampled dirt, the deafening roar of the amphitheater swells to a crescendo—then abruptly dies. \nTen thousand heads turn upward toward the high marble gallery, where the Emperor \nrises slowly from his gilded throne, his heavy crimson robes catching the dry arena wind.\r\n\r\nHe steps to the stone balustrade, resting ring-laden hands \nupon the parapet as his cold, unreadable gaze sweeps over the Crimson Pit. \nHe looks first at the broken fighter sprawled in the dust, weighing \nthe courage of their struggle, before locking eyes with the lone survivor \nstanding chest-heaving in the center of the ring. To the Emperor, \nsweat and bruised bone are merely the currency that buys the peace of Vespera.\r\n\r\nWith agonizing, deliberate slowness, he raises his right hand over the edge of the balcony. \nA suffocating silence falls over the coliseum, broken only by \nragged breathing in the sand below. Then, with a sharp, unmistakable turn of his wrist, \nthe Emperor delivers the imperial verdict. Bronze trumpets blare in harsh unison, \nthe iron gates grind open once more, and the {attacker.Name} name is roared \nto the heavens—while the loser is dragged back into the dark.");
                 Console.ReadKey();
                 break;
             }
@@ -326,9 +352,24 @@ internal class Program
         int val;
         while (!int.TryParse(Console.ReadLine(), out val) || val < min || val > max)
         {
-            Console.Write($"Vänligen ange ett giltigt nummer ({min}-{max}): ");
+            Console.Write($"PLease type a number within the range ({min}-{max}): ");
         }
         return val;
     }
     #endregion
+    static void Intro ()
+    {
+        Console.ForegroundColor = ConsoleColor.White;
+        string text = "<===== Gladiator =====>";
+        CentreraText(text);
+        Console.ForegroundColor = ConsoleColor.DarkGray;
+        Console.WriteLine("\nBeneath the towering stone arches of Vespera, forged steel is strictly forbidden. Long ago, the Arena Magistrates \ndecreed that blades end a bout too quickly, robbing the roaring crowds of true spectacle. Instead, warriors are cast \ninto the Crimson Pit armed with nothing but scarred knuckles, iron discipline, and sheer willpower. \nHere, the law of the arena is absolute: two gladiators step onto the sun-baked dirt, and the heavy gates remain bolted \nuntil only one is left standing.");
+        Console.ForegroundColor = ConsoleColor.White;
+        Console.WriteLine("\npress any button to continue...");
+        Console.ForegroundColor = ConsoleColor.DarkGray;
+        Console.ReadLine();
+        Console.Clear();
+    }
 }
+//ALl lore är skriven av gemini
+//jhvj

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\liam.antonsson\\source\\repos\\Gladiator\\Gladiator\\Gladiator.csproj": {}
+    "C:\\Users\\liam.antonsson\\Documents\\GitHub\\Gladiator\\Gladiator\\Gladiator.csproj": {}
   },
   "projects": {
-    "C:\\Users\\liam.antonsson\\source\\repos\\Gladiator\\Gladiator\\Gladiator.csproj": {
+    "C:\\Users\\liam.antonsson\\Documents\\GitHub\\Gladiator\\Gladiator\\Gladiator.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\liam.antonsson\\source\\repos\\Gladiator\\Gladiator\\Gladiator.csproj",
+        "projectUniqueName": "C:\\Users\\liam.antonsson\\Documents\\GitHub\\Gladiator\\Gladiator\\Gladiator.csproj",
         "projectName": "Gladiator",
-        "projectPath": "C:\\Users\\liam.antonsson\\source\\repos\\Gladiator\\Gladiator\\Gladiator.csproj",
+        "projectPath": "C:\\Users\\liam.antonsson\\Documents\\GitHub\\Gladiator\\Gladiator\\Gladiator.csproj",
         "packagesPath": "C:\\Users\\liam.antonsson\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\liam.antonsson\\source\\repos\\Gladiator\\Gladiator\\obj\\",
+        "outputPath": "C:\\Users\\liam.antonsson\\Documents\\GitHub\\Gladiator\\Gladiator\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
